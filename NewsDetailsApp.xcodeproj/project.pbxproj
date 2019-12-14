@@ -14,6 +14,7 @@
 		CDB227B723A50C2800831254 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDB227B523A50C2800831254 /* LaunchScreen.storyboard */; };
 		CDB227C223A50C2800831254 /* NewsDetailsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB227C123A50C2800831254 /* NewsDetailsAppTests.swift */; };
 		CDB227CD23A50C2800831254 /* NewsDetailsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB227CC23A50C2800831254 /* NewsDetailsAppUITests.swift */; };
+		CDB227DB23A50D5300831254 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB227DA23A50D5300831254 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		CDB227C823A50C2800831254 /* NewsDetailsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsDetailsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB227CC23A50C2800831254 /* NewsDetailsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsAppUITests.swift; sourceTree = "<group>"; };
 		CDB227CE23A50C2800831254 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDB227DA23A50D5300831254 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				CDB227B323A50C2800831254 /* Assets.xcassets */,
 				CDB227B523A50C2800831254 /* LaunchScreen.storyboard */,
 				CDB227B823A50C2800831254 /* Info.plist */,
+				CDB227DA23A50D5300831254 /* CustomTableViewCell.swift */,
 			);
 			path = NewsDetailsApp;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDB227DB23A50D5300831254 /* CustomTableViewCell.swift in Sources */,
 				CDB227AF23A50C2600831254 /* ViewController.swift in Sources */,
 				CDB227AD23A50C2600831254 /* AppDelegate.swift in Sources */,
 			);
@@ -433,6 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NewsDetailsApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +455,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NewsDetailsApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
