@@ -20,7 +20,15 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
     var sourceURLArr = [String]()
     
     
-    
+    var mainTitle : UILabel = {
+        var mainLbl = UILabel(frame: CGRect(x: 50, y: 50, width: 300, height: 50))
+        mainLbl.textAlignment = .center
+        mainLbl.textColor = .green
+        mainLbl.shadowColor = .gray
+        mainLbl.text = "Todays News"
+        mainLbl.font = UIFont.boldSystemFont(ofSize: 50)
+        return mainLbl
+    }()
     
     let API_KEY = "e86589f7d9a946698a7d2bee66767a47"
     var newsTableView:UITableView!
@@ -28,18 +36,15 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        view.addSubview(mainTitle)
         creatTableView()
         dataFromServer()
     }
     
     //creating tableview
     func creatTableView(){
-        newsTableView = UITableView(frame: CGRect(x: 0, y: 50, width: view.frame.width, height: view.frame.height-50), style: .plain)
+        newsTableView = UITableView(frame: CGRect(x: 0, y: 125, width: view.frame.width, height: view.frame.height-50), style: .plain)
         view.addSubview(newsTableView)
-        
-        newsTableView.delegate = self
-        newsTableView.dataSource = self
         
         // registerig tableview
         
@@ -67,18 +72,20 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
                
                 
                 for val in jsonData.articles!{
-                    print(val.author ?? "NO NAME")
+                    print(val.urlToImage ?? "NO NAME")
                     self.titleArr.append(val.title!)
                     self.descrptiveArr.append(val.descriptionField ?? "NO DESCRIPTION")
                     self.authorNamesArr.append(val.author ?? "NO NAME")
                     self.dateArr.append(val.publishedAt!)
-                    self.imageArr.append(val.urlToImage ?? "NO_URL")
+                    self.imageArr.append(val.urlToImage ?? "https://images.barrons.com/im-93753/social")
                     self.contentArr.append(val.content ?? "NO_CONTENT")
                     self.sourceArr.append((val.source?.name)!)
                     self.sourceURLArr.append(val.url!)
                 }
                 
                 DispatchQueue.main.sync {
+                      self.newsTableView.delegate = self
+                      self.newsTableView.dataSource = self
                     self.newsTableView.reloadData()
                 }
                 
@@ -101,21 +108,33 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = newsTableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
-        
+        cell.selectionStyle = .blue
+      
+        cell.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         cell.titleLabel.text = titleArr[indexPath.row]
         cell.descriptTextView.text = descrptiveArr[indexPath.row]
-        cell.authorLabel.text = authorNamesArr[indexPath.row]
+        cell.authorLabel.text = "By \(authorNamesArr[indexPath.row])"
         cell.dateLabel.text = dateArr[indexPath.row]
-        cell.contentImageView.image = UIImage(named: imageArr[indexPath.row])
+        
+        if(imageArr[indexPath.row] == "http://s.marketwatch.com/public/resources/MWimages/MW-GF332_broadc_ZG_20180312185441.jpg"){
+            imageArr.remove(at: indexPath.row)
+            imageArr.append("https://images.wsj.net/im-136403/social")
+        }
+        
+        cell.contentImageView.image = try! UIImage(data: Data(contentsOf: URL(string: "\(imageArr[indexPath.row])")!))
         cell.contentTextView.text = contentArr[indexPath.row]
-        cell.sourceLabel.text = sourceArr[indexPath.row]
-        cell.sourceUrl.text = sourceURLArr[indexPath.row]
+        cell.sourceLabel.text = "Source-\(sourceArr[indexPath.row])"
+        cell.sourceUrl.text = "Source_URL - \(sourceURLArr[indexPath.row])"
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 390
+        return 820
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }
 
