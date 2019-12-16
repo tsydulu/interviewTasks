@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD97A7BC23A7BD3700956B3F /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97A7BB23A7BD3700956B3F /* DisplayViewController.swift */; };
 		CDB227AD23A50C2600831254 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB227AC23A50C2600831254 /* AppDelegate.swift */; };
 		CDB227AF23A50C2600831254 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB227AE23A50C2600831254 /* ViewController.swift */; };
 		CDB227B223A50C2600831254 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDB227B023A50C2600831254 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD97A7BB23A7BD3700956B3F /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		CDB227A923A50C2600831254 /* NewsDetailsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsDetailsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB227AC23A50C2600831254 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDB227AE23A50C2600831254 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD97A7BD23A7C37900956B3F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CDB227AE23A50C2600831254 /* ViewController.swift */,
+				CD97A7BB23A7BD3700956B3F /* DisplayViewController.swift */,
+				CDB227DA23A50D5300831254 /* CustomTableViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CD97A7BF23A7C3AE00956B3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CDB227DE23A514FD00831254 /* RootClass.swift */,
+				CDB227E023A5152C00831254 /* Articles.swift */,
+				CDB227E223A5155500831254 /* Source.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CD97A7C023A7C3BD00956B3F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CDB227AC23A50C2600831254 /* AppDelegate.swift */,
+				CDB227B023A50C2600831254 /* Main.storyboard */,
+				CDB227B323A50C2800831254 /* Assets.xcassets */,
+				CDB227B523A50C2800831254 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CDB227A023A50C2600831254 = {
 			isa = PBXGroup;
 			children = (
@@ -105,16 +138,10 @@
 		CDB227AB23A50C2600831254 /* NewsDetailsApp */ = {
 			isa = PBXGroup;
 			children = (
-				CDB227AC23A50C2600831254 /* AppDelegate.swift */,
-				CDB227AE23A50C2600831254 /* ViewController.swift */,
-				CDB227B023A50C2600831254 /* Main.storyboard */,
-				CDB227B323A50C2800831254 /* Assets.xcassets */,
-				CDB227B523A50C2800831254 /* LaunchScreen.storyboard */,
 				CDB227B823A50C2800831254 /* Info.plist */,
-				CDB227DA23A50D5300831254 /* CustomTableViewCell.swift */,
-				CDB227DE23A514FD00831254 /* RootClass.swift */,
-				CDB227E023A5152C00831254 /* Articles.swift */,
-				CDB227E223A5155500831254 /* Source.swift */,
+				CD97A7C023A7C3BD00956B3F /* View */,
+				CD97A7BD23A7C37900956B3F /* Controller */,
+				CD97A7BF23A7C3AE00956B3F /* Model */,
 			);
 			path = NewsDetailsApp;
 			sourceTree = "<group>";
@@ -269,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDB227DF23A514FD00831254 /* RootClass.swift in Sources */,
+				CD97A7BC23A7BD3700956B3F /* DisplayViewController.swift in Sources */,
 				CDB227E123A5152C00831254 /* Articles.swift in Sources */,
 				CDB227E323A5155500831254 /* Source.swift in Sources */,
 				CDB227DB23A50D5300831254 /* CustomTableViewCell.swift in Sources */,

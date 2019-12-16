@@ -20,30 +20,42 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
     var sourceURLArr = [String]()
     
     
-    var mainTitle : UILabel = {
-        var mainLbl = UILabel(frame: CGRect(x: 50, y: 50, width: 300, height: 50))
-        mainLbl.textAlignment = .center
-        mainLbl.textColor = .green
-        mainLbl.shadowColor = .gray
-        mainLbl.text = "Todays News"
-        mainLbl.font = UIFont.boldSystemFont(ofSize: 50)
-        return mainLbl
-    }()
+//    var mainTitle : UILabel = {
+//        var mainLbl = UILabel(frame: CGRect(x: 50, y: 50, width: 300, height: 50))
+//        mainLbl.textAlignment = .center
+//        mainLbl.textColor = .green
+//        mainLbl.shadowColor = .gray
+//        mainLbl.text = "Todays News"
+//        mainLbl.font = UIFont.boldSystemFont(ofSize: 50)
+//        return mainLbl
+//    }()
+    
+    
     
     let API_KEY = "e86589f7d9a946698a7d2bee66767a47"
     var newsTableView:UITableView!
     
+    var imageView:UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        view.addSubview(mainTitle)
+        //view.addSubview(mainTitle)
+        
+        creatingImageView()
+        navigationItem.title = "News"
         creatTableView()
         dataFromServer()
+    }
+    func creatingImageView(){
+        imageView = UIImageView(frame: CGRect(x: 10, y: 100, width: 300, height: 200))
+        imageView.image = UIImage(named: "load")
+        view.addSubview(imageView)
     }
     
     //creating tableview
     func creatTableView(){
-        newsTableView = UITableView(frame: CGRect(x: 0, y: 125, width: view.frame.width, height: view.frame.height), style: .plain)
+        newsTableView = UITableView(frame: CGRect(x: 0, y: 75, width: view.frame.width, height: view.frame.height), style: .plain)
         newsTableView.separatorStyle = .none
         newsTableView.separatorInset = UIEdgeInsets(top: 8, left: 8, bottom: 15, right: 5)
         
@@ -86,6 +98,7 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
                 }
                 
                 DispatchQueue.main.sync {
+                    self.imageView.removeFromSuperview()
                     self.view.addSubview(self.newsTableView)
                       self.newsTableView.delegate = self
                       self.newsTableView.dataSource = self
@@ -127,16 +140,23 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
         cell.contentImageView.image = try! UIImage(data: Data(contentsOf: URL(string: "\(imageArr[indexPath.row])")!))
         cell.contentTextView.text = contentArr[indexPath.row]
         cell.sourceLabel.text = "Source-\(sourceArr[indexPath.row])"
-        cell.sourceUrl.text = "Source_URL - \(sourceURLArr[indexPath.row])"
+        //cell.sourceUrl.text = "Source_URL - \(sourceURLArr[indexPath.row])"
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 820
+        return 790
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var display = DisplayViewController()
+        if  let rowIndex = newsTableView.indexPathForSelectedRow{
+            
+            print(rowIndex.row)
+            display.url = sourceURLArr[rowIndex.row]
+            navigationController?.pushViewController(display, animated: true)
+        }
         
     }
 }
