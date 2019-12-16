@@ -10,6 +10,11 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
+    
+    //creating required components
+    
+    
+    
     let titleLabel:UILabel = {
         var title = UILabel()
         title.numberOfLines = 0
@@ -49,6 +54,7 @@ class CustomTableViewCell: UITableViewCell {
     
     let contentTextView : UITextView = {
         var ContentText = UITextView()
+        ContentText.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         ContentText.font = UIFont.systemFont(ofSize: 20)
         ContentText.textAlignment = .natural
         ContentText.isEditable = false
@@ -76,18 +82,19 @@ class CustomTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.contentView.layer.borderWidth = 3
-        self.contentView.layer.borderColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-        self.layer.cornerRadius = 15
+        self.contentView.layer.borderWidth = 4
+        self.contentView.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.layer.cornerRadius = 20
+        self.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         
         
-        self.addSubview(titleLabel)
-        self.addSubview(descriptTextView)
-        self.addSubview(authorLabel)
-        self.addSubview(dateLabel)
-        self.addSubview(contentImageView)
-        self.addSubview(contentTextView)
-        self.addSubview(sourceLabel)
+        addSubview(titleLabel)
+        addSubview(descriptTextView)
+        addSubview(authorLabel)
+        addSubview(dateLabel)
+        addSubview(contentImageView)
+        addSubview(contentTextView)
+        addSubview(sourceLabel)
         //self.addSubview(sourceUrl)
         
         constrintsForComponents()
