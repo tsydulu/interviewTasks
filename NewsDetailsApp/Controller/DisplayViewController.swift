@@ -15,7 +15,7 @@ class DisplayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //print(url)
-        navigationItem.title = "Todays News"
+        navigationItem.title = "News"
         createweb()
         // Do any additional setup after loading the view.
     }

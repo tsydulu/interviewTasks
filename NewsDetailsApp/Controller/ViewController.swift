@@ -43,7 +43,7 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
         //view.addSubview(mainTitle)
         
         creatingImageView()
-        navigationItem.title = "News"
+        navigationItem.title = "Todays News"
         creatTableView()
         dataFromServer()
     }

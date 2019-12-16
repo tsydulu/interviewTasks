@@ -28,6 +28,7 @@ class CustomTableViewCell: UITableViewCell {
         var descrTextView = UITextView()
         descrTextView.font = UIFont.boldSystemFont(ofSize: 20)
         descrTextView.isEditable = false
+        descrTextView.isSelectable = false
         descrTextView.textAlignment = .center
         descrTextView.translatesAutoresizingMaskIntoConstraints = false
         return descrTextView
@@ -53,13 +54,14 @@ class CustomTableViewCell: UITableViewCell {
     }()
     
     let contentTextView : UITextView = {
-        var ContentText = UITextView()
-        ContentText.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-        ContentText.font = UIFont.systemFont(ofSize: 20)
-        ContentText.textAlignment = .natural
-        ContentText.isEditable = false
-        ContentText.translatesAutoresizingMaskIntoConstraints = false
-        return ContentText
+        var contentText = UITextView()
+        contentText.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        contentText.font = UIFont.systemFont(ofSize: 20)
+        contentText.textAlignment = .natural
+        contentText.isEditable = false
+        contentText.isSelectable = false
+        contentText.translatesAutoresizingMaskIntoConstraints = false
+        return contentText
     }()
     
     let sourceLabel : UILabel = {
