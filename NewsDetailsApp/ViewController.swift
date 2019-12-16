@@ -43,8 +43,10 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
     
     //creating tableview
     func creatTableView(){
-        newsTableView = UITableView(frame: CGRect(x: 0, y: 125, width: view.frame.width, height: view.frame.height-50), style: .plain)
-        view.addSubview(newsTableView)
+        newsTableView = UITableView(frame: CGRect(x: 0, y: 125, width: view.frame.width, height: view.frame.height), style: .plain)
+        newsTableView.separatorStyle = .none
+        newsTableView.separatorInset = UIEdgeInsets(top: 8, left: 8, bottom: 15, right: 5)
+        
         
         // registerig tableview
         
@@ -84,6 +86,7 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
                 }
                 
                 DispatchQueue.main.sync {
+                    self.view.addSubview(self.newsTableView)
                       self.newsTableView.delegate = self
                       self.newsTableView.dataSource = self
                     self.newsTableView.reloadData()

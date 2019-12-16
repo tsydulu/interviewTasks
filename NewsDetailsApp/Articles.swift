@@ -13,7 +13,7 @@ struct Article : Decodable {
     let content : String?
     let descriptionField : String?
     let publishedAt : String?
-    let source : Source
+    let source : Source?
     let title : String?
     let url : String?
     let urlToImage : String?
@@ -35,7 +35,7 @@ struct Article : Decodable {
         content = try values.decodeIfPresent(String.self, forKey: .content)
         descriptionField = try values.decodeIfPresent(String.self, forKey: .descriptionField)
         publishedAt = try values.decodeIfPresent(String.self, forKey: .publishedAt)
-        source = try Source(from: decoder)
+        source = try values.decodeIfPresent(Source.self, forKey: .source)
         title = try values.decodeIfPresent(String.self, forKey: .title)
         url = try values.decodeIfPresent(String.self, forKey: .url)
         urlToImage = try values.decodeIfPresent(String.self, forKey: .urlToImage)

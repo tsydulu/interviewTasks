@@ -9,7 +9,7 @@
 import Foundation
 struct Source : Decodable {
     
-    let id : AnyObject?
+    let id : String?
     let name : String?
     
     enum CodingKeys: String, CodingKey {
@@ -19,7 +19,7 @@ struct Source : Decodable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(String.self, forKey: .id) as AnyObject
+        id = try values.decodeIfPresent(String.self, forKey: .id)
         name = try values.decodeIfPresent(String.self, forKey: .name)
     }
     
